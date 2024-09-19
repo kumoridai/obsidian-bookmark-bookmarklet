@@ -30,15 +30,20 @@ javascript:(function(){const now=new Date();const pad=(num)=>String(num).padStar
 ### 日付のフォーマット
 
 日付のフォーマットは、本文にwikiリンクとして書き込む日時を`wikiDate`、プロパティに記載する閲覧日時を`formattedDate`で定義されています。
+
 デフォルトではアンダーバー区切りの日付形式(`YYYY_MM_DD`)とISO形式（`YYYY-MM-DDTHH:MM:SS`）が使われていますが、以下のように変更することができます。
+
 作者のデイリーノートの区切りはアンダーバーですが、Obsidianのデフォルト設定はハイフン区切りのため、適宜変更を加えてください。
 
 - `formattedDate`: 保存されるファイルに書かれる日付のフォーマット
 - `wikiDate`: Obsidian内で使うWikiリンクのフォーマット
 
+
 例: `YYYY-MM-DD`及び`YYYY/MM/DD HH:MM:SS`に変更する場合
 
+
 const wikiDate=`[[${now.getFullYear()}-${pad(now.getMonth()+1)}-${pad(now.getDate())}]]`;
+
 const formattedDate=`${now.getFullYear()}/${pad(now.getMonth()+1)}/${pad(now.getDate())} ${pad(now.getHours())}:${pad(now.getMinutes())}:${pad(now.getSeconds())}`;
 
 ### ブックマークフォルダのパス
